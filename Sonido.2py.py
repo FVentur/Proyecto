@@ -6,7 +6,7 @@ import winsound
 lista=[]
 
 pc=[1100, 1400, 1800, 1600]
-
+var = 0
 def unsort(aux):
     pcdesordenada=[]
     for x in range(len(aux)):
@@ -46,18 +46,19 @@ def Ejecutar(lis):
 
 def comparacion(lisdes, li, pc, var):
     cont = 0
-    aux = 0
+    boolean = False
     for item,item2 in zip(lisdes, li):
         if item.__eq__(item2):
             cont += 1
             boolean = True
         else:
             li.clear()
-            var.set(0)
+            puntaje.set(0)
             break
-
+    if boolean:
+        var += 1
     if cont.__ge__(len(lisdes)):
-
+        puntaje.set(int(puntaje.get())+1)
         aux = random.choice(pc)
         lisdes.append(aux)
         li.clear()
@@ -70,8 +71,8 @@ Ventana.geometry("700x500")
 Ventana.config(bg='black')
 Ejecutar(pcdesordenada)
 
-var = IntVar()
-label = Label(Ventana, textvariable=var).grid(row=0, column=1)
+puntaje = StringVar("0")
+label = Label(Ventana, textvariable=puntaje).grid(row=0, column=2)
 
 
 boton = Button(Ventana, text="iniciar sonido", command=botn1, height = 15, width = 35, bg='red').grid(row=1, column=1)
