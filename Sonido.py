@@ -2,6 +2,8 @@ from time import sleep
 from tkinter import *
 from puntos import Puntaje
 from Frame import frame
+import re
+import consultas
 import random
 import winsound
 
@@ -51,6 +53,7 @@ class App():
 
     def comparacion(self,lisdes, li, pc):
         cont = 0
+        self.num = consultas.Conexion()
         for item,item2 in zip(lisdes, li):
             if item.__eq__(item2):
                 cont += 1
@@ -64,6 +67,8 @@ class App():
                 break
             if cont.__ge__(len(lisdes)):
                 self.Puntos.marcador.set(self.Puntos.marcador.get() + 1)
+                if self.num.__lt__(self.Puntos.marcador.get()):
+                    consultas.ActualizarMayor(self.Puntos.marcador.get(),self.num)
                 aux = random.choice(pc)
                 lisdes.append(aux)
                 li.clear()

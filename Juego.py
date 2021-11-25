@@ -8,7 +8,6 @@ Ventana.geometry("700x520")
 Ventana.config(bg='black')
 canvas = Canvas(Ventana,height = 15, width = 35, bg='black')
 canvas.grid()
-puntaje = Puntaje(Ventana)
 pestania=frame()
 pestania.setFrame(Ventana)
 app = App(pestania)
@@ -25,6 +24,5 @@ boton = Button(Ventana, command=app.botn1, height = 15, width = 35, bg='red').gr
 boton2 = Button(Ventana, command=app.botn2, height = 15, width = 35, bg='green').grid(row=1, column=2)
 boton3 = Button(Ventana, command=app.botn3, height = 15, width = 35, bg='yellow').grid(row=2, column=1)
 boton4 = Button(Ventana, command=app.botn4, height = 15, width = 35, bg='blue').grid(row=2, column=2)
-
 
 Ventana.mainloop()
